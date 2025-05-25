@@ -1,14 +1,47 @@
 import React from 'react'
-import { Button } from '@/components/ui/button'
+import CompanionCard from '@/components/dashboard/CompanionCard'
+import CompanionsList from '@/components/dashboard/CompanionsList'
+import CTA from '@/components/dashboard/CTA'
 
 const Page = () => {
   return (
-    <>
-      <div className='flex space-x-4'>
-        <h1 className={'text-2xl underline animate-[fade-in_0.3s_ease-in-out]'}>Welcome to EduNexus</h1>
-        <Button className={'btn-primary '}>Let&#39;s get started</Button>
-      </div>
-    </>
+    <main>
+      <h1>Popular Companions</h1>
+
+      <section className='home-section'>
+        <CompanionCard
+          companionId='133'
+          name='Neura the Brainy Explorer'
+          topic=' Neural Network of the Brain'
+          subject='Science'
+          duration='45'
+          color='purple'
+        />
+
+        <CompanionCard
+          companionId='123'
+          name='Countsy the Number Wizard'
+          topic=' Derivatives & Integrals'
+          subject='Maths'
+          duration='30'
+          color='amber'
+        />
+
+        <CompanionCard
+          companionId='456'
+          name='Verba the Vocabulary Builder'
+          topic='English Literature '
+          subject='Language'
+          duration='30'
+          color='sky'
+        />
+      </section>
+
+      <section className='home-section'>
+        <CompanionsList />
+        <CTA />
+      </section>
+    </main>
   )
 }
 
