@@ -2,7 +2,7 @@ import React from 'react'
 import CompanionCard from '@/components/dashboard/CompanionCard'
 import CompanionsList from '@/components/dashboard/CompanionsList'
 import CTA from '@/components/dashboard/CTA'
-import {recentSessions} from "@/constants";
+import { recentSessions } from '@/constants'
 
 const Page = () => {
   return (
@@ -16,7 +16,7 @@ const Page = () => {
           topic=' Neural Network of the Brain'
           subject='Science'
           duration='45'
-          color='purple'
+          color='#E5D0FF'
         />
 
         <CompanionCard
@@ -25,7 +25,7 @@ const Page = () => {
           topic=' Derivatives & Integrals'
           subject='Maths'
           duration='30'
-          color='amber'
+          color='#FFDA6E'
         />
 
         <CompanionCard
@@ -34,15 +34,15 @@ const Page = () => {
           topic='English Literature '
           subject='Language'
           duration='30'
-          color='sky'
+          color='#BDE7FF'
         />
       </section>
 
       <section className='home-section'>
         <CompanionsList
-            title={"Recently Completed Sessions"}
-            companions={recentSessions}
-            classNames={"w-2/3 max-lg:w-full"}
+          title={'Recently Completed Sessions'}
+          companions={recentSessions}
+          classNames={'w-2/3 max-lg:w-full'}
         />
         <CTA />
       </section>
