@@ -19,10 +19,10 @@ const navItemsObject = [
     href: '/my-journey'
   },
 
-  {
-    label: 'Sign In',
-    href: '/sign-in'
-  }
+  // {
+  //   label: 'Sign In',
+  //   href: '/sign-in'
+  // }
 ]
 
 const NavItems = () => {

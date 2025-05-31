@@ -16,6 +16,9 @@ import {
 } from "@/components/ui/select"
 import {subjects} from "@/constants";
 import {Textarea} from "@/components/ui/textarea";
+import {createCompanion} from "@/lib/actions/companion.actions";
+import {redirect} from "next/navigation";
+import {toast} from "react-toastify";
 
 
 const CompanionForm = () => {
@@ -31,8 +34,16 @@ const CompanionForm = () => {
     }
   })
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values)
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const companion = await createCompanion(values);
+
+    if(companion){
+        toast.success('Companion created successfully');
+        redirect(`/companions/${companion.id}`)
+    }else{
+        toast.error("Failed to create a companion!")
+        redirect(`/`)
+    }
   }
 
   return (
