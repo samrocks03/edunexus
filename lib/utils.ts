@@ -1,6 +1,7 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import {subjectsColors} from "@/constants";
+import { subjectsColors } from '@/constants'
+import qs from 'query-string'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -15,10 +16,44 @@ export const colorMap: Record<string, string> = {
   sky: 'bg-sky-200'
 }
 
-
 export const getSubjectColor = (subject: string) => {
-  return subjectsColors[subject as keyof typeof subjectsColors];
-};
+  return subjectsColors[subject as keyof typeof subjectsColors]
+}
+
+type FormUrlQueryParams = {
+  params: string
+  key: string
+  value: string
+}
+
+type RemoveKeysFromUrlQueryParams = {
+  params: string
+  keysToRemove: string[]
+}
+
+export const formUrlQuery = ({ params, key, value }: FormUrlQueryParams) => {
+  const queryString = qs.parse(params)
+  queryString[key] = value
+
+  return qs.stringifyUrl({
+    url: window.location.pathname,
+    query: queryString
+  })
+}
+export const removeKeysFromUrlQuery = ({ params, keysToRemove }: RemoveKeysFromUrlQueryParams) => {
+  const queryString = qs.parse(params)
+  keysToRemove.forEach(key => {
+    delete queryString[key]
+  })
+
+  return qs.stringifyUrl(
+    {
+      url: window.location.pathname,
+      query: queryString
+    },
+    { skipNull: true }
+  )
+}
 
 // export const configureAssistant = (voice: string, style: string) => {
 //   const voiceId =

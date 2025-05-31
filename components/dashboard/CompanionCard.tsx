@@ -1,4 +1,4 @@
-import { cn, colorMap } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -13,7 +13,7 @@ interface ICompanionCard {
 
 const CompanionCard = ({ companionId, name, topic, subject, duration, color }: ICompanionCard) => {
   return (
-    <article className={cn('companion-card', colorMap[color])}>
+    <article className={cn('companion-card')} style={{ backgroundColor: color }}>
       <div className='flex justify-between items-center'>
         <div className='subject-badge'>{subject}</div>
 
